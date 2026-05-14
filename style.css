@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #ff3bd5 0%, transparent 30%),
+    radial-gradient(circle at bottom, #7a5cff 0%, transparent 35%),
+    #070711;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  background: rgba(10, 10, 25, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 32px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(255, 59, 213, 0.5);
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff3bd5, #7a5cff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: bold;
+  box-shadow: 0 0 25px #ff3bd5;
+}
+
+h1 {
+  font-size: 34px;
+  color: #fff;
+  text-shadow: 0 0 15px #ff3bd5;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #f4d7ff;
+}
+
+.info {
+  margin: 28px 0 20px;
+}
+
+.info h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #ff8ee8;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buttons a {
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  border-radius: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff3bd5, #7a5cff);
+  box-shadow: 0 0 18px rgba(255, 59, 213, 0.45);
+}
+
+.services {
+  margin-top: 28px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.services h3 {
+  margin-bottom: 12px;
+  color: #ff8ee8;
+}
+
+.services ul {
+  list-style: none;
+}
+
+.services li {
+  margin: 8px 0;
+}
+
+.price {
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 24px;
+  border: 2px solid #ff3bd5;
+  box-shadow: 0 0 22px rgba(255, 59, 213, 0.45);
+}
+
+.price p {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.price h2 {
+  font-size: 44px;
+  color: #fff;
+  text-shadow: 0 0 20px #ff3bd5;
+}
+
+footer {
+  margin-top: 22px;
+  font-size: 13px;
+  color: #e8d4ff;
+}
