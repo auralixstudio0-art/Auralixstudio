@@ -1,101 +1,242 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Auralix Studio | Tarjeta Digital</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auralix Studio</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top, #ff2bd6 0%, transparent 30%),
+    radial-gradient(circle at bottom, #7b4dff 0%, transparent 35%),
+    #05050c;
+  color:white;
+  display:flex;
+  justify-content:center;
+  padding:25px 12px;
+}
+
+.phone{
+  width:100%;
+  max-width:390px;
+  border-radius:45px;
+  padding:12px;
+  background:linear-gradient(145deg,#1b1b24,#000);
+  box-shadow:0 0 35px #ff38d4;
+}
+
+.screen{
+  border-radius:35px;
+  padding:35px 20px 25px;
+  background:
+    radial-gradient(circle at top,#ff38d455,transparent 28%),
+    linear-gradient(#0b0615,#05050c);
+  border:1px solid #ff7bea88;
+  min-height:720px;
+}
+
+.logo{
+  width:95px;
+  height:95px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff35d4,#7b4dff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:48px;
+  font-weight:bold;
+  box-shadow:0 0 30px #ff38d4;
+  animation:pulse 2s infinite;
+}
+
+h1{
+  text-align:center;
+  font-size:46px;
+  text-shadow:0 0 18px #ff38d4;
+}
+
+.studio{
+  text-align:center;
+  letter-spacing:10px;
+  font-weight:bold;
+  margin:5px 0 20px;
+}
+
+.tag{
+  text-align:center;
+  border:1px solid #ff7bea;
+  border-radius:18px;
+  padding:10px;
+  font-size:13px;
+  margin-bottom:25px;
+  box-shadow:0 0 15px #ff38d455;
+}
+
+.link{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px;
+  margin-bottom:13px;
+  border-radius:16px;
+  text-decoration:none;
+  color:white;
+  background:#ffffff12;
+  border:1px solid #ff7bea99;
+  box-shadow:0 0 13px #ff38d455;
+  transition:.3s;
+}
+
+.link:active{
+  transform:scale(.97);
+}
+
+.icon{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  background:linear-gradient(135deg,#ff35d4,#7b4dff);
+}
+
+.text{
+  flex:1;
+}
+
+.text strong{
+  display:block;
+  font-size:17px;
+  text-transform:uppercase;
+}
+
+.text small{
+  color:#ffc6f6;
+}
+
+.arrow{
+  font-size:32px;
+  color:#ff8beb;
+}
+
+.services{
+  margin-top:25px;
+  padding:18px;
+  border-radius:20px;
+  background:#ffffff10;
+  border:1px solid #ff7bea66;
+}
+
+.services h2{
+  text-align:center;
+  margin-bottom:15px;
+  color:#fff;
+  text-shadow:0 0 12px #ff38d4;
+}
+
+.service{
+  padding:10px 0;
+  border-bottom:1px dotted #ffffff55;
+  font-size:15px;
+}
+
+.service:last-child{
+  border-bottom:none;
+}
+
+.footer{
+  margin-top:20px;
+  text-align:center;
+  border:1px solid #ff7bea88;
+  border-radius:15px;
+  padding:12px;
+  color:#ffd6fb;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+}
+</style>
 </head>
+
 <body>
 
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
+<div class="phone">
+  <div class="screen">
 
-  <main class="phone">
-    <section class="screen">
-      <div class="stars"></div>
+    <div class="logo">A</div>
 
-      <header class="brand">
-        <div class="logo">A</div>
-        <h1>Auralix</h1>
-        <span>STUDIO</span>
-        <p>Diseño • Branding • Tarjetas digitales • Stickers • Landing pages</p>
-      </header>
+    <h1>Auralix</h1>
+    <div class="studio">STUDIO</div>
 
-      <section class="profile-card">
-        <h2>Tarjeta Digital Interactiva</h2>
-        <p>Tu marca, tu estilo, tu historia. Nosotros la hacemos digital.</p>
-      </section>
+    <div class="tag">
+      DISEÑO • BRANDING • TARJETAS DIGITALES • STICKERS • LANDING PAGES
+    </div>
 
-      <nav class="links">
-        <a class="link whatsapp" href="https://wa.me/525613961040" target="_blank">
-          <span class="icon">💬</span>
-          <div>
-            <strong>WhatsApp</strong>
-            <small>¡Escríbeme!</small>
-          </div>
-          <span class="arrow">›</span>
-        </a>
+    <a class="link" href="https://wa.me/525613961040" target="_blank">
+      <div class="icon">💬</div>
+      <div class="text">
+        <strong>WhatsApp</strong>
+        <small>¡Escríbeme!</small>
+      </div>
+      <div class="arrow">›</div>
+    </a>
 
-        <a class="link" href="https://instagram.com/auralix.studio" target="_blank">
-          <span class="icon">📸</span>
-          <div>
-            <strong>Instagram</strong>
-            <small>@auralix.studio</small>
-          </div>
-          <span class="arrow">›</span>
-        </a>
+    <a class="link" href="https://instagram.com/auralix.studio" target="_blank">
+      <div class="icon">📸</div>
+      <div class="text">
+        <strong>Instagram</strong>
+        <small>@auralix.studio</small>
+      </div>
+      <div class="arrow">›</div>
+    </a>
 
-        <a class="link" href="https://tiktok.com/@auralix.studio" target="_blank">
-          <span class="icon">🎵</span>
-          <div>
-            <strong>TikTok</strong>
-            <small>@auralix.studio</small>
-          </div>
-          <span class="arrow">›</span>
-        </a>
+    <a class="link" href="https://tiktok.com/@auralix.studio" target="_blank">
+      <div class="icon">🎵</div>
+      <div class="text">
+        <strong>TikTok</strong>
+        <small>@auralix.studio</small>
+      </div>
+      <div class="arrow">›</div>
+    </a>
 
-        <a class="link" href="mailto:hola@auralixstudio.com">
-          <span class="icon">✉️</span>
-          <div>
-            <strong>Correo</strong>
-            <small>hola@auralixstudio.com</small>
-          </div>
-          <span class="arrow">›</span>
-        </a>
-      </nav>
+    <a class="link" href="mailto:hola@auralixstudio.com">
+      <div class="icon">✉️</div>
+      <div class="text">
+        <strong>Correo</strong>
+        <small>hola@auralixstudio.com</small>
+      </div>
+      <div class="arrow">›</div>
+    </a>
 
-      <section class="services">
-        <h3>Servicios</h3>
-        <div class="service-row">
-          <span>Tarjetas digitales</span>
-          <b>$250</b>
-        </div>
-        <div class="service-row">
-          <span>Stickers personalizados</span>
-          <b>12 · 24 · 40</b>
-        </div>
-        <div class="service-row">
-          <span>Diseño de logos</span>
-          <b>Cotizar</b>
-        </div>
-        <div class="service-row">
-          <span>Mini webs / Landing pages</span>
-          <b>Cotizar</b>
-        </div>
-      </section>
-
-      <section class="cta">
-        <p>Moderna, profesional y hecha para destacar ✨</p>
-      </section>
+    <section class="services">
+      <h2>SERVICIOS</h2>
+      <div class="service">Tarjetas digitales interactivas</div>
+      <div class="service">Stickers personalizados</div>
+      <div class="service">Diseño de logos</div>
+      <div class="service">Menús digitales</div>
+      <div class="service">Mini webs / Landing pages</div>
     </section>
-  </main>
 
-  <footer class="bottom-icons">
-    <span>⭐ 100% personalizado</span>
-    <span>⚡ Entrega rápida</span>
-    <span>📱 Responsive</span>
-  </footer>
+    <div class="footer">
+      Tu marca, tu estilo, tu historia. Nosotros la hacemos digital 💖
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>
