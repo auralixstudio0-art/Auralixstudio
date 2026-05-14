@@ -5,112 +5,180 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auralix Studio</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700;900&display=swap');
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial, sans-serif;
 }
 
 body{
   min-height:100vh;
   background:
-    radial-gradient(circle at top, #ff2bd6 0%, transparent 30%),
-    radial-gradient(circle at bottom, #7b4dff 0%, transparent 35%),
-    #05050c;
+    radial-gradient(circle at 15% 10%, #ff2bd680, transparent 28%),
+    radial-gradient(circle at 85% 20%, #7b4dff70, transparent 28%),
+    radial-gradient(circle at 50% 100%, #ff2bd650, transparent 35%),
+    #03030a;
   color:white;
+  font-family:'Montserrat', sans-serif;
   display:flex;
   justify-content:center;
-  padding:25px 12px;
+  padding:22px 10px;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(#ffffff08 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+  background-size:35px 35px;
+  pointer-events:none;
 }
 
 .phone{
   width:100%;
-  max-width:390px;
-  border-radius:45px;
+  max-width:410px;
+  border-radius:48px;
   padding:12px;
-  background:linear-gradient(145deg,#1b1b24,#000);
-  box-shadow:0 0 35px #ff38d4;
+  background:linear-gradient(145deg,#262631,#050509);
+  box-shadow:
+    0 0 0 2px #ffffff18,
+    0 0 35px #ff38d4,
+    0 0 75px #7b4dff80;
+  animation:floatPhone 4s ease-in-out infinite;
+  position:relative;
+}
+
+.phone::before{
+  content:"";
+  position:absolute;
+  top:13px;
+  left:50%;
+  transform:translateX(-50%);
+  width:100px;
+  height:18px;
+  background:#050509;
+  border-radius:0 0 18px 18px;
+  z-index:5;
 }
 
 .screen{
-  border-radius:35px;
-  padding:35px 20px 25px;
+  border-radius:38px;
+  padding:42px 18px 24px;
+  min-height:720px;
   background:
     radial-gradient(circle at top,#ff38d455,transparent 28%),
-    linear-gradient(#0b0615,#05050c);
+    linear-gradient(#10071c,#03030a);
   border:1px solid #ff7bea88;
-  min-height:720px;
+  overflow:hidden;
+  position:relative;
 }
 
-.logo{
-  width:95px;
-  height:95px;
-  margin:0 auto 15px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#ff35d4,#7b4dff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:48px;
-  font-weight:bold;
-  box-shadow:0 0 30px #ff38d4;
-  animation:pulse 2s infinite;
+.screen::before{
+  content:"✦ ✧ ✨ ✦ ✧ ✨";
+  position:absolute;
+  top:20px;
+  left:16px;
+  right:16px;
+  color:#ff9af0;
+  letter-spacing:16px;
+  font-size:14px;
+  animation:twinkle 2s infinite alternate;
 }
 
-h1{
+.brand{
   text-align:center;
-  font-size:46px;
-  text-shadow:0 0 18px #ff38d4;
+  position:relative;
+  z-index:2;
+}
+
+.brand-title{
+  font-family:'Great Vibes', cursive;
+  font-size:68px;
+  line-height:.9;
+  color:#ffd6fb;
+  text-shadow:
+    0 0 8px #fff,
+    0 0 18px #ff38d4,
+    0 0 38px #ff38d4;
 }
 
 .studio{
-  text-align:center;
-  letter-spacing:10px;
-  font-weight:bold;
-  margin:5px 0 20px;
+  margin-top:8px;
+  letter-spacing:12px;
+  font-size:18px;
+  font-weight:900;
+  color:#fff;
+  text-shadow:0 0 12px #7b4dff;
 }
 
 .tag{
-  text-align:center;
+  margin:22px 0;
+  padding:12px 14px;
   border:1px solid #ff7bea;
-  border-radius:18px;
-  padding:10px;
-  font-size:13px;
-  margin-bottom:25px;
-  box-shadow:0 0 15px #ff38d455;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  line-height:1.5;
+  box-shadow:
+    0 0 12px #ff38d455,
+    inset 0 0 15px #ff38d422;
+  background:#ffffff08;
+}
+
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:13px;
 }
 
 .link{
   display:flex;
   align-items:center;
   gap:14px;
-  padding:14px;
-  margin-bottom:13px;
-  border-radius:16px;
+  padding:12px 14px;
+  border-radius:17px;
   text-decoration:none;
   color:white;
-  background:#ffffff12;
+  background:#ffffff0d;
   border:1px solid #ff7bea99;
-  box-shadow:0 0 13px #ff38d455;
-  transition:.3s;
+  box-shadow:
+    0 0 12px #ff38d455,
+    inset 0 0 14px #ffffff06;
+  transition:.25s ease;
+  animation:slideUp .7s ease both;
 }
 
+.link:hover,
 .link:active{
-  transform:scale(.97);
+  transform:scale(.98);
+  box-shadow:0 0 24px #ff38d4aa;
 }
 
 .icon{
-  width:42px;
-  height:42px;
-  border-radius:12px;
+  width:44px;
+  height:44px;
+  border-radius:13px;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:24px;
-  background:linear-gradient(135deg,#ff35d4,#7b4dff);
+  color:white;
 }
+
+.whatsapp .icon{background:#25D366;}
+.instagram .icon{background:linear-gradient(135deg,#feda75,#d62976,#962fbf,#4f5bd5);}
+.tiktok .icon{background:#000; border:1px solid #ffffff44;}
+.mail .icon{background:#ff4fcf;}
+.location .icon{background:#ff6b4a;}
 
 .text{
   flex:1;
@@ -119,55 +187,90 @@ h1{
 .text strong{
   display:block;
   font-size:17px;
+  font-weight:900;
   text-transform:uppercase;
 }
 
 .text small{
   color:#ffc6f6;
+  font-size:13px;
+  font-weight:600;
 }
 
 .arrow{
-  font-size:32px;
+  font-size:34px;
   color:#ff8beb;
+  text-shadow:0 0 10px #ff38d4;
 }
 
 .services{
-  margin-top:25px;
-  padding:18px;
-  border-radius:20px;
-  background:#ffffff10;
+  margin-top:24px;
+  padding:17px;
+  border-radius:22px;
+  background:#ffffff0d;
   border:1px solid #ff7bea66;
+  box-shadow:0 0 18px #ff38d433;
 }
 
 .services h2{
   text-align:center;
   margin-bottom:15px;
-  color:#fff;
-  text-shadow:0 0 12px #ff38d4;
+  font-size:22px;
+  letter-spacing:1px;
+  text-shadow:0 0 14px #ff38d4;
 }
 
 .service{
-  padding:10px 0;
-  border-bottom:1px dotted #ffffff55;
-  font-size:15px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:9px 0;
+  border-bottom:1px dotted #ffffff70;
+  font-size:13px;
+  text-transform:uppercase;
 }
 
 .service:last-child{
   border-bottom:none;
 }
 
-.footer{
-  margin-top:20px;
-  text-align:center;
-  border:1px solid #ff7bea88;
-  border-radius:15px;
-  padding:12px;
-  color:#ffd6fb;
+.service span:last-child{
+  color:#ff9af0;
+  font-weight:900;
+  white-space:nowrap;
 }
 
-@keyframes pulse{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.05);}
+.footer{
+  margin-top:18px;
+  text-align:center;
+  border:1px solid #ff7bea88;
+  border-radius:16px;
+  padding:13px;
+  color:#ffd6fb;
+  font-size:13px;
+  font-weight:600;
+  box-shadow:0 0 15px #ff38d433;
+}
+
+@keyframes floatPhone{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+
+@keyframes twinkle{
+  from{opacity:.25;}
+  to{opacity:1;}
+}
+
+@keyframes slideUp{
+  from{
+    opacity:0;
+    transform:translateY(16px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 </style>
 </head>
@@ -177,58 +280,92 @@ h1{
 <div class="phone">
   <div class="screen">
 
-    <div class="logo">A</div>
+    <div class="brand">
+      <div class="brand-title">Auralix</div>
+      <div class="studio">STUDIO</div>
 
-    <h1>Auralix</h1>
-    <div class="studio">STUDIO</div>
-
-    <div class="tag">
-      DISEÑO • BRANDING • TARJETAS DIGITALES • STICKERS • LANDING PAGES
+      <div class="tag">
+        Diseño • Branding • Tarjetas digitales<br>
+        Stickers • Landing pages • Más
+      </div>
     </div>
 
-    <a class="link" href="https://wa.me/525613961040" target="_blank">
-      <div class="icon">💬</div>
-      <div class="text">
-        <strong>WhatsApp</strong>
-        <small>¡Escríbeme!</small>
-      </div>
-      <div class="arrow">›</div>
-    </a>
+    <div class="links">
 
-    <a class="link" href="https://instagram.com/auralix.studio" target="_blank">
-      <div class="icon">📸</div>
-      <div class="text">
-        <strong>Instagram</strong>
-        <small>@auralix.studio</small>
-      </div>
-      <div class="arrow">›</div>
-    </a>
+      <a class="link whatsapp" href="https://wa.me/525613961040" target="_blank">
+        <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <div class="text">
+          <strong>WhatsApp</strong>
+          <small>¡Escríbeme!</small>
+        </div>
+        <div class="arrow">›</div>
+      </a>
 
-    <a class="link" href="https://tiktok.com/@auralix.studio" target="_blank">
-      <div class="icon">🎵</div>
-      <div class="text">
-        <strong>TikTok</strong>
-        <small>@auralix.studio</small>
-      </div>
-      <div class="arrow">›</div>
-    </a>
+      <a class="link instagram" href="https://instagram.com/auralix.studio" target="_blank">
+        <div class="icon"><i class="fa-brands fa-instagram"></i></div>
+        <div class="text">
+          <strong>Instagram</strong>
+          <small>@auralix.studio</small>
+        </div>
+        <div class="arrow">›</div>
+      </a>
 
-    <a class="link" href="mailto:hola@auralixstudio.com">
-      <div class="icon">✉️</div>
-      <div class="text">
-        <strong>Correo</strong>
-        <small>hola@auralixstudio.com</small>
-      </div>
-      <div class="arrow">›</div>
-    </a>
+      <a class="link tiktok" href="https://tiktok.com/@auralix.studio" target="_blank">
+        <div class="icon"><i class="fa-brands fa-tiktok"></i></div>
+        <div class="text">
+          <strong>TikTok</strong>
+          <small>@auralix.studio</small>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+      <a class="link mail" href="mailto:hola@auralixstudio.com">
+        <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+        <div class="text">
+          <strong>Correo</strong>
+          <small>hola@auralixstudio.com</small>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+      <a class="link location" href="https://maps.google.com/?q=CDMX" target="_blank">
+        <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div class="text">
+          <strong>Ubicación</strong>
+          <small>CDMX, México</small>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+    </div>
 
     <section class="services">
-      <h2>SERVICIOS</h2>
-      <div class="service">Tarjetas digitales interactivas</div>
-      <div class="service">Stickers personalizados</div>
-      <div class="service">Diseño de logos</div>
-      <div class="service">Menús digitales</div>
-      <div class="service">Mini webs / Landing pages</div>
+      <h2>✦ SERVICIOS ✦</h2>
+
+      <div class="service">
+        <span>Tarjetas digitales</span>
+        <span>$250</span>
+      </div>
+
+      <div class="service">
+        <span>Diseño de logos</span>
+        <span>Cotizar</span>
+      </div>
+
+      <div class="service">
+        <span>Stickers personalizados</span>
+        <span>12 · 24 · 40</span>
+      </div>
+
+      <div class="service">
+        <span>Catálogos interactivos</span>
+        <span>Cotizar</span>
+      </div>
+
+      <div class="service">
+        <span>Mini webs / Landing pages</span>
+        <span>Cotizar</span>
+      </div>
     </section>
 
     <div class="footer">
