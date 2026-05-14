@@ -40,6 +40,7 @@ body::before{
     linear-gradient(90deg, #ffffff08 1px, transparent 1px);
   background-size:35px 35px;
   pointer-events:none;
+  animation:gridMove 12s linear infinite;
 }
 
 .phone{
@@ -81,17 +82,43 @@ body::before{
   position:relative;
 }
 
-.screen::before{
-  content:"✦ ✧ ✨ ✦ ✧ ✨";
+.screen::after{
+  content:"";
   position:absolute;
-  top:20px;
-  left:16px;
-  right:16px;
-  color:#ff9af0;
-  letter-spacing:16px;
-  font-size:14px;
-  animation:twinkle 2s infinite alternate;
+  inset:-40%;
+  background:linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255,255,255,.08) 43%,
+    rgba(255,96,230,.22) 50%,
+    rgba(255,255,255,.08) 57%,
+    transparent 65%
+  );
+  transform:translateX(-70%) rotate(8deg);
+  animation:shineSweep 4.8s ease-in-out infinite;
+  pointer-events:none;
 }
+
+.sparkles{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+.sparkles span{
+  position:absolute;
+  color:#ffd6fb;
+  text-shadow:0 0 10px #ff38d4, 0 0 18px #7b4dff;
+  animation:sparkle 2.2s ease-in-out infinite;
+}
+
+.sparkles span:nth-child(1){top:6%; left:12%; animation-delay:.1s;}
+.sparkles span:nth-child(2){top:7%; right:14%; animation-delay:.7s;}
+.sparkles span:nth-child(3){top:32%; left:8%; animation-delay:1.2s;}
+.sparkles span:nth-child(4){top:52%; right:8%; animation-delay:.4s;}
+.sparkles span:nth-child(5){bottom:17%; left:14%; animation-delay:1.5s;}
+.sparkles span:nth-child(6){bottom:10%; right:18%; animation-delay:.9s;}
 
 .brand{
   text-align:center;
@@ -113,6 +140,7 @@ body::before{
   height:38px;
   position:relative;
   filter:drop-shadow(0 0 8px #ff38d4) drop-shadow(0 0 14px #ff38d4);
+  animation:wingGlow 2.2s ease-in-out infinite;
 }
 
 .wing::before,
@@ -149,11 +177,26 @@ body::before{
   font-size:58px;
   line-height:1;
   color:#ffd6fb;
+  letter-spacing:1px;
   text-shadow:
     0 0 6px #fff,
     0 0 18px #ff38d4,
     0 0 35px #ff38d4;
-  letter-spacing:1px;
+  animation:logoGlow 2.6s ease-in-out infinite;
+  position:relative;
+}
+
+.brand-title::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-25%;
+  width:35%;
+  height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.75), transparent);
+  transform:skewX(-18deg);
+  filter:blur(1px);
+  animation:logoShine 3.3s ease-in-out infinite;
 }
 
 .studio{
@@ -163,6 +206,7 @@ body::before{
   font-weight:900;
   color:#fff;
   text-shadow:0 0 12px #7b4dff;
+  animation:softBlink 2.4s ease-in-out infinite;
 }
 
 .tag{
@@ -178,12 +222,15 @@ body::before{
     0 0 12px #ff38d455,
     inset 0 0 15px #ff38d422;
   background:#ffffff08;
+  animation:borderPulse 2.8s ease-in-out infinite;
 }
 
 .links{
   display:flex;
   flex-direction:column;
   gap:13px;
+  position:relative;
+  z-index:2;
 }
 
 .link{
@@ -200,7 +247,18 @@ body::before{
     0 0 12px #ff38d455,
     inset 0 0 14px #ffffff06;
   transition:.25s ease;
-  animation:slideUp .7s ease both;
+  animation:slideUp .7s ease both, borderPulse 3s ease-in-out infinite;
+  position:relative;
+  overflow:hidden;
+}
+
+.link::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg, transparent 20%, rgba(255,255,255,.18) 50%, transparent 80%);
+  transform:translateX(-120%);
+  animation:buttonShine 3.5s ease-in-out infinite;
 }
 
 .link:hover,
@@ -218,6 +276,8 @@ body::before{
   justify-content:center;
   font-size:24px;
   color:white;
+  animation:iconFloat 3s ease-in-out infinite;
+  z-index:2;
 }
 
 .whatsapp .icon{background:#25D366;}
@@ -228,6 +288,7 @@ body::before{
 
 .text{
   flex:1;
+  z-index:2;
 }
 
 .text strong{
@@ -247,6 +308,8 @@ body::before{
   font-size:34px;
   color:#ff8beb;
   text-shadow:0 0 10px #ff38d4;
+  animation:arrowMove 1.5s ease-in-out infinite;
+  z-index:2;
 }
 
 .services{
@@ -256,6 +319,9 @@ body::before{
   background:#ffffff0d;
   border:1px solid #ff7bea66;
   box-shadow:0 0 18px #ff38d433;
+  position:relative;
+  z-index:2;
+  animation:borderPulse 3s ease-in-out infinite;
 }
 
 .services h2{
@@ -296,6 +362,9 @@ body::before{
   font-size:13px;
   font-weight:600;
   box-shadow:0 0 15px #ff38d433;
+  position:relative;
+  z-index:2;
+  animation:borderPulse 2.8s ease-in-out infinite;
 }
 
 @keyframes floatPhone{
@@ -303,14 +372,78 @@ body::before{
   50%{transform:translateY(-8px);}
 }
 
+@keyframes gridMove{
+  from{background-position:0 0;}
+  to{background-position:35px 35px;}
+}
+
 @keyframes twinkle{
   from{opacity:.25;}
   to{opacity:1;}
 }
 
+@keyframes sparkle{
+  0%,100%{opacity:.25; transform:scale(.7) rotate(0deg);}
+  50%{opacity:1; transform:scale(1.25) rotate(18deg);}
+}
+
 @keyframes slideUp{
   from{opacity:0; transform:translateY(16px);}
   to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes logoGlow{
+  0%,100%{
+    text-shadow:0 0 6px #fff,0 0 18px #ff38d4,0 0 35px #ff38d4;
+  }
+  50%{
+    text-shadow:0 0 12px #fff,0 0 28px #ff38d4,0 0 55px #7b4dff;
+  }
+}
+
+@keyframes logoShine{
+  0%{left:-35%; opacity:0;}
+  35%{opacity:.9;}
+  60%{left:110%; opacity:0;}
+  100%{left:110%; opacity:0;}
+}
+
+@keyframes wingGlow{
+  0%,100%{filter:drop-shadow(0 0 8px #ff38d4) drop-shadow(0 0 14px #ff38d4);}
+  50%{filter:drop-shadow(0 0 15px #ff38d4) drop-shadow(0 0 28px #7b4dff);}
+}
+
+@keyframes softBlink{
+  0%,100%{opacity:.85;}
+  50%{opacity:1;}
+}
+
+@keyframes borderPulse{
+  0%,100%{box-shadow:0 0 12px #ff38d455, inset 0 0 12px #ffffff06;}
+  50%{box-shadow:0 0 24px #ff38d4aa, inset 0 0 18px #ff38d422;}
+}
+
+@keyframes buttonShine{
+  0%{transform:translateX(-120%);}
+  45%{transform:translateX(130%);}
+  100%{transform:translateX(130%);}
+}
+
+@keyframes iconFloat{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-3px);}
+}
+
+@keyframes arrowMove{
+  0%,100%{transform:translateX(0);}
+  50%{transform:translateX(5px);}
+}
+
+@keyframes shineSweep{
+  0%{transform:translateX(-80%) rotate(8deg); opacity:0;}
+  30%{opacity:.8;}
+  55%{transform:translateX(80%) rotate(8deg); opacity:0;}
+  100%{transform:translateX(80%) rotate(8deg); opacity:0;}
 }
 
 @media(max-width:380px){
@@ -325,6 +458,15 @@ body::before{
 
 <div class="phone">
   <div class="screen">
+
+    <div class="sparkles">
+      <span>✦</span>
+      <span>✨</span>
+      <span>✧</span>
+      <span>✦</span>
+      <span>✨</span>
+      <span>✧</span>
+    </div>
 
     <div class="brand">
       <div class="logo-wrap">
