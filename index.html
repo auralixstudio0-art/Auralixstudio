@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600;700;900&display=swap');
 
 *{
   margin:0;
@@ -97,21 +97,67 @@ body::before{
   text-align:center;
   position:relative;
   z-index:2;
+  margin-top:8px;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:2px;
+}
+
+.wing{
+  width:54px;
+  height:38px;
+  position:relative;
+  filter:drop-shadow(0 0 8px #ff38d4) drop-shadow(0 0 14px #ff38d4);
+}
+
+.wing::before,
+.wing::after{
+  content:"";
+  position:absolute;
+  border:3px solid #ff9af0;
+  border-right:none;
+  border-bottom:none;
+  border-radius:100% 0 0 0;
+  transform:rotate(-25deg);
+}
+
+.wing::before{
+  width:42px;
+  height:28px;
+  top:4px;
+  left:5px;
+}
+
+.wing::after{
+  width:30px;
+  height:20px;
+  top:15px;
+  left:12px;
+}
+
+.wing.right{
+  transform:scaleX(-1);
 }
 
 .brand-title{
-  font-family:'Great Vibes', cursive;
-  font-size:68px;
-  line-height:.9;
+  font-family:'Pacifico', cursive;
+  font-size:58px;
+  line-height:1;
   color:#ffd6fb;
   text-shadow:
-    0 0 8px #fff,
+    0 0 6px #fff,
     0 0 18px #ff38d4,
-    0 0 38px #ff38d4;
+    0 0 35px #ff38d4;
+  letter-spacing:1px;
 }
 
 .studio{
-  margin-top:8px;
+  margin-top:6px;
   letter-spacing:12px;
   font-size:18px;
   font-weight:900;
@@ -263,14 +309,14 @@ body::before{
 }
 
 @keyframes slideUp{
-  from{
-    opacity:0;
-    transform:translateY(16px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  from{opacity:0; transform:translateY(16px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@media(max-width:380px){
+  .brand-title{font-size:50px;}
+  .wing{width:42px;}
+  .studio{letter-spacing:9px;}
 }
 </style>
 </head>
@@ -281,7 +327,12 @@ body::before{
   <div class="screen">
 
     <div class="brand">
-      <div class="brand-title">Auralix</div>
+      <div class="logo-wrap">
+        <div class="wing left"></div>
+        <div class="brand-title">Auralix</div>
+        <div class="wing right"></div>
+      </div>
+
       <div class="studio">STUDIO</div>
 
       <div class="tag">
